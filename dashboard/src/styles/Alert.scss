@@ -1,0 +1,58 @@
+// Declare variables
+$alert-type-size: 7px;
+
+// Alert type colors
+$alert-success-color: #4caf50;
+$alert-error-color: #f44336;
+$alert-warning-color: #ff9800;
+$alert-info-color: #2196f3;
+
+#alert-container {
+    position: fixed;
+    top: 0;
+    right: 0;
+    max-height: 80vh;
+    overflow-y: none;
+    z-index: 1000;
+    padding: 0px 0px;
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+.alert {
+    display: flex;
+    align-items: center;
+    width: auto;
+    padding: 10px 10px 10px calc(10px + #{$alert-type-size});
+    margin: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    position: relative;
+
+    &::after {
+        content: '';
+        width: #{$alert-type-size};
+        position: absolute;
+        left: 0;
+        height: 100%;
+        border-radius: 5px 0 0 5px;
+    }
+
+    &.success::after {
+        background-color: $alert-success-color;
+    }
+
+    &.error::after {
+        background-color: $alert-error-color;
+    }
+
+    &.warning::after {
+        background-color: $alert-warning-color;
+    }
+
+    &.info::after {
+        background-color: $alert-info-color;
+    }
+}

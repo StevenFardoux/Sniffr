@@ -1,0 +1,185 @@
+#Map
+{
+    position: relative;
+    height: calc(100vh - 69px);
+
+    .position-overlay{
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        top: 10px;
+        left: 10px;
+        padding: 12px 15px;
+        background-color: #fff;
+        box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+        font-family: 'Roboto Mono', monospace;
+        min-width: 200px;
+
+        p {
+            margin: 0;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.9rem;
+            color: #2c3e50;
+        }
+
+        .last-update {
+            font-size: 0.9em;
+            color: #666;
+            margin-top: 8px;
+            font-style: italic;
+        }
+    }
+
+    .gps-data {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        display: flex;
+        flex-direction: column;
+        background-color: #fff;
+        padding: 15px;
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.15);
+        border-radius: 8px;
+        min-width: 250px;
+        max-height: 80vh;
+        overflow-y: auto;
+
+        & > h2 {
+            margin: 0;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #2c3e50;
+            font-size: 1.2rem;
+        }
+
+        & > .marker-list {
+            list-style: none;
+            padding: 0;
+            margin: 10px 0 0 0;
+
+            // Reverse the order of markers 
+            display: flex;
+            flex-direction: column-reverse;
+
+            & > li {
+                padding: 10px;
+                border-radius: 6px;
+                margin-bottom: 5px;
+                display: flex;
+                align-items: center;
+                gap: 8px;
+                transition: all 0.2s ease;
+                background-color: #f8f9fa;
+                border: 1px solid #e9ecef;
+
+                &:hover {
+                    cursor: pointer;
+                    background-color: #e9ecef;
+                    transform: translateY(-2px);
+                }
+
+                i {
+                    color: #e74c3c;
+                }
+
+                .marker-details {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 4px;
+
+                    .marker-title {
+                        font-weight: 600;
+                        color: #2c3e50;
+                    }
+
+                    .marker-coords {
+                        font-size: 0.8rem;
+                        color: #6c757d;
+                        font-family: monospace;
+                    }
+
+                    .marker-time {
+                        font-size: 0.8rem;
+                        color: #6c757d;
+                        font-style: italic;
+                    }
+                }
+            }
+        }
+
+        .last-update {
+            font-size: 0.9em;
+            color: #666;
+            margin: 10px 0;
+            padding: 8px;
+            background-color: #f8f9fa;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+
+            i {
+                color: #2c3e50;
+            }
+        }
+    }
+
+    @media (max-width: 600px) {
+        .gps-data {
+            top: unset;
+            right: unset;
+            left: 0;
+            bottom: 0;
+            width: 100vw;
+            min-width: unset;
+            max-width: unset;
+            border-radius: 16px 16px 0 0;
+            box-shadow: 0 -2px 15px rgba(0,0,0,0.10);
+            padding: 12px 16px 8px 16px;
+            z-index: 10;
+            max-height: 45vh;
+        }
+        .gps-data > .marker-list {
+            max-height: 30vh;
+            overflow-y: auto;
+        }
+        #map-container {
+            height: 55vh;
+        }
+    }
+
+    :global {
+        .mapboxgl-popup {
+            max-width: 200px;
+        }
+
+        .mapboxgl-popup-content {
+            padding: 10px 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+
+            h3 {
+                margin: 0;
+                font-size: 14px;
+                color: #2c3e50;
+                font-weight: 600;
+            }
+        }
+
+        .mapboxgl-popup-tip {
+            border-top-color: #fff !important;
+        }
+    }
+}
+
+#map-container
+{
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
