@@ -6,9 +6,9 @@ jobs:
   build: 
     runs-on: ubuntu-latest
     steps: 
-      -name: Checkout code 
-      uses: actions/checkout@v4
-      -name: Install depedencies
-      run: npm i
-      -name: Launch tests
-      run: npm run test
+      - name: Checkout code 
+        uses: actions/checkout@v4
+      - name: Install depedencies
+        run: npm i
+      - name: Launch tests
+        run: npm run test
