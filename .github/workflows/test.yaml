@@ -1,0 +1,14 @@
+name: test CICD
+
+on: [push]
+
+jobs:
+  build: 
+    runs-on: ubuntu-latest
+    setps: 
+      -name: Checkout code 
+      uses: actions/checkout@v4
+      -name: Install depedencies
+      run: npm i
+      -name: Launch tests
+      run: npm run test
