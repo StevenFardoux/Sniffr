@@ -5,7 +5,7 @@ on: [push]
 jobs:
   build: 
     runs-on: ubuntu-latest
-    setps: 
+    steps: 
       -name: Checkout code 
       uses: actions/checkout@v4
       -name: Install depedencies
